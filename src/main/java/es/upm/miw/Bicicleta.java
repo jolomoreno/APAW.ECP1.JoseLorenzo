@@ -12,7 +12,7 @@ public class Bicicleta {
     }
 
     public boolean isHomologada(){
-        return this.homolgada == true;
+        return this.homolgada;
     }
 
     public void setHomologada(){
