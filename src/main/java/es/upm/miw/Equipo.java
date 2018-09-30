@@ -1,21 +1,31 @@
 package es.upm.miw;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Equipo {
     private String id;
-    private int num_corredores;
+    private int numCorredores;
     private String nombre;
+
+    private List<Corredor> corredorList;
+    private List<Competicion> competicionList;
+    private Categoria categoria;
 
     Equipo(){
         this.id = "1";
-        this.num_corredores = 0;
+        this.numCorredores = 0;
         this.nombre = "";
+        this.corredorList = new ArrayList<>();
+        this.competicionList = new ArrayList<>();
+        this.categoria = Categoria.JUNIOR;
     }
 
     public Integer getNumCorredores(){
-        return this.num_corredores;
+        return this.numCorredores;
     }
 
-    public void setNumCorredores(int num_corredores){
-        this.num_corredores = num_corredores;
+    public void setNumCorredores(int numCorredores){
+        this.numCorredores = numCorredores;
     }
 }
