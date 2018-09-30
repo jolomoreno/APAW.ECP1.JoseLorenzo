@@ -8,7 +8,7 @@ public class Equipo {
     private int numCorredores;
     private String nombre;
 
-    private List<Corredor> corredorList;
+    private List<CorredorSingleton> corredorList;
     private List<Competicion> competicionList;
     private Categoria categoria;
 
