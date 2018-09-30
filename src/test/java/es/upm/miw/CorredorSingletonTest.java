@@ -14,7 +14,7 @@ public class CorredorSingletonTest {
     }
 
     @Test
-    void testCorredor() {
+    void CorredorSingleton() {
         assertEquals(0, (int) corredor.getDorsal());
     }
 
