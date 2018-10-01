@@ -14,7 +14,7 @@ public class CompeticionTest {
     }
 
     @Test
-    void testBicicleta() {
+    void testCompeticion() {
         assertEquals("", competicion.getLugar());
     }
 

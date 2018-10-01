@@ -13,11 +13,23 @@ public class Competicion {
         this.lugar = "";
     }
 
+    public String getId(){
+        return this.id;
+    }
+
     public String getLugar(){
         return this.lugar;
     }
 
     public void setLugar(String lugar){
         this.lugar = lugar;
+    }
+
+    public LocalDateTime getFecha(){
+        return this.fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha){
+        this.fecha = fecha;
     }
 }
