@@ -3,6 +3,8 @@ package es.upm.miw;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CompeticionCompositeTest {
@@ -13,35 +15,36 @@ public class CompeticionCompositeTest {
 
     @BeforeEach
     void before() {
-        this.composite = new CompeticionComposite("Competiciones en España");
+        this.composite = new CompeticionComposite("Competiciones en España", "1", LocalDateTime.now(), "España");
 
-        leaf = new CompeticionLeaf("VoltaCatalunya");
+        leaf = new CompeticionLeaf("VoltaCatalunya","1", LocalDateTime.now(), "España");
 
         composite.add(leaf);
 
-        leaf2 = new CompeticionLeaf("VueltaBurgos");
+        leaf2 = new CompeticionLeaf("VueltaBurgos","1", LocalDateTime.now(), "España");
 
         composite.add(leaf2);
 
-        this.composite2 = new CompeticionComposite("Competiciones en Madrid");
+        this.composite2 = new CompeticionComposite("Competiciones en Madrid","1", LocalDateTime.now(), "España");
 
-        composite2.add(new CompeticionLeaf("Vuelta a Alcorcon"));
+        composite2.add(new CompeticionLeaf("Vuelta a Alcorcon","1", LocalDateTime.now(), "España"));
 
-        composite2.add(new CompeticionLeaf("Vuelta a Alcala de Henares"));
+        composite2.add(new CompeticionLeaf("Vuelta a Alcala de Henares","1", LocalDateTime.now(), "España"));
 
         composite.add(composite2);
 
-        composite.add(new CompeticionLeaf("Competiciones en Euskadi"));
+        composite.add(new CompeticionLeaf("Competiciones en Euskadi","1", LocalDateTime.now(), "España"));
 
-        leaf3 = new CompeticionLeaf("Competiciones en Comunitat Valenciana");
+        leaf3 = new CompeticionLeaf("Competiciones en Comunitat Valenciana","1", LocalDateTime.now(), "España");
 
         composite.add(leaf3);
 
-        //composite.remove(leaf3);
+        composite.remove(leaf3);
     }
 
     @Test
     void testLeafIsComposite() {
-        composite.get(1);
+        System.out.println(composite.toString(1));
+
     }
 }

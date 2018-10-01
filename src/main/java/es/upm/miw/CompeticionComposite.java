@@ -1,14 +1,16 @@
 package es.upm.miw;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CompeticionComposite extends CompeticionComponent{
 
     private ArrayList<CompeticionComponent> competicionComponentList;
 
-    public CompeticionComposite(String name) {
-        super(name);
+    private String competicionListString = "";
+
+    public CompeticionComposite(String name, String id, LocalDateTime fecha, String lugar) {
+        super(name, id, fecha, lugar);
         competicionComponentList = new ArrayList<>();
     }
 
@@ -30,14 +32,12 @@ public class CompeticionComposite extends CompeticionComponent{
     }
 
     @Override
-    public String getName(){
-        return this.name;
-    }
-
-    @Override
-    public void get(int deep){
+    public String toString(int deep){
+        competicionListString = this.name + " nivel: " + deep + "\r\n";
         for (int i = 0; i < competicionComponentList.size(); i++)
-            competicionComponentList.get(i).get(deep+1);
+            competicionListString += competicionComponentList.get(i).toString(deep+1);
+
+        return competicionListString;
     }
 
 

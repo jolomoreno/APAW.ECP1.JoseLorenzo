@@ -1,9 +1,11 @@
 package es.upm.miw;
 
+import java.time.LocalDateTime;
+
 public class CompeticionLeaf extends CompeticionComponent{
 
-    public CompeticionLeaf(String nombre) {
-        super(nombre);
+    public CompeticionLeaf(String name, String id, LocalDateTime fecha, String lugar) {
+        super(name, id, fecha, lugar);
     }
 
     @Override
@@ -22,12 +24,7 @@ public class CompeticionLeaf extends CompeticionComponent{
     }
 
     @Override
-    public void get(int deep){
-        System.out.println("-" + " " + this.name);
-    }
-
-    @Override
-    public String getName(){
-        return this.name;
+    public String toString(int deep){
+        return(this.id + " - " + this.name + " " + this.fecha+ " " + this.lugar + "\r\n");
     }
 }
