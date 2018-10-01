@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class CorredorSingletonTest {
     private CorredorSingleton corredor;
@@ -14,8 +16,13 @@ public class CorredorSingletonTest {
     }
 
     @Test
-    void CorredorSingleton() {
-        assertEquals(0, (int) corredor.getDorsal());
+    void testIsSingleton() {
+        assertSame(corredor.getCorredorSingleton(), corredor.getCorredorSingleton());
+    }
+
+    @Test
+    void testSingletonNotNull() {
+        assertNotNull(corredor.getCorredorSingleton());
     }
 
     @Test
