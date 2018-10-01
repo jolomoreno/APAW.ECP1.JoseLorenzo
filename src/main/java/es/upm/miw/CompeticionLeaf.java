@@ -2,11 +2,8 @@ package es.upm.miw;
 
 public class CompeticionLeaf extends CompeticionComponent{
 
-    private Competicion competicion;
-
-    public CompeticionLeaf(Competicion competicion) {
-        super(competicion.getId());
-        this.competicion = competicion;
+    public CompeticionLeaf(String nombre) {
+        super(nombre);
     }
 
     @Override
@@ -24,11 +21,13 @@ public class CompeticionLeaf extends CompeticionComponent{
         // Do nothing because is leaf
     }
 
-    public Competicion getCompeticion() {
-        return competicion;
+    @Override
+    public void get(int deep){
+        System.out.println("-" + " " + this.name);
     }
 
-    public String getLugar() {
-        return competicion.getLugar();
+    @Override
+    public String getName(){
+        return this.name;
     }
 }

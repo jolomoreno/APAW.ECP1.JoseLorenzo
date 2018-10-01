@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CompeticionComposite extends CompeticionComponent{
 
-    List<CompeticionComponent> competicionComponentList;
+    private ArrayList<CompeticionComponent> competicionComponentList;
 
     public CompeticionComposite(String name) {
         super(name);
@@ -30,7 +30,15 @@ public class CompeticionComposite extends CompeticionComponent{
     }
 
     @Override
-    public String getName() {
-        return super(name);
+    public String getName(){
+        return this.name;
     }
+
+    @Override
+    public void get(int deep){
+        for (int i = 0; i < competicionComponentList.size(); i++)
+            competicionComponentList.get(i).get(deep+1);
+    }
+
+
 }

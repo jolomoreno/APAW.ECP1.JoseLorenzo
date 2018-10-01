@@ -1,7 +1,7 @@
 package es.upm.miw;
 
 public abstract class CompeticionComponent {
-    private String name;
+    protected String name;
 
     public CompeticionComponent(String name) {
         this.name = name;
@@ -9,7 +9,11 @@ public abstract class CompeticionComponent {
 
     public abstract boolean isComposite();
 
-    public abstract void add(CompeticionComponent articleComponent);
+    public abstract void add(CompeticionComponent competicionComponent);
 
-    public abstract void remove(CompeticionComponent articleComponent);
+    public abstract void remove(CompeticionComponent competicionComponent);
+
+    public abstract void get(int deep);
+
+    public abstract String getName();
 }

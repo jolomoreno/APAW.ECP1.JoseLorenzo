@@ -7,31 +7,41 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CompeticionCompositeTest {
 
-    private Competicion competicion;
-    private CompeticionComposite composite;
+    private CompeticionComposite composite, composite2;
     private CompeticionLeaf leaf, leaf2, leaf3;
 
 
     @BeforeEach
     void before() {
-        this.competicion = new Competicion();
+        this.composite = new CompeticionComposite("Competiciones en España");
 
-        this.composite = new CompeticionComposite("TourDeFrancia");
+        leaf = new CompeticionLeaf("VoltaCatalunya");
 
-        this.leaf = new CompeticionLeaf(competicion);
+        composite.add(leaf);
 
-        this.composite.add(leaf);
+        leaf2 = new CompeticionLeaf("VueltaBurgos");
+
+        composite.add(leaf2);
+
+        this.composite2 = new CompeticionComposite("Competiciones en Madrid");
+
+        composite2.add(new CompeticionLeaf("Vuelta a Alcorcon"));
+
+        composite2.add(new CompeticionLeaf("Vuelta a Alcala de Henares"));
+
+        composite.add(composite2);
+
+        composite.add(new CompeticionLeaf("Competiciones en Euskadi"));
+
+        leaf3 = new CompeticionLeaf("Competiciones en Comunitat Valenciana");
+
+        composite.add(leaf3);
+
+        //composite.remove(leaf3);
     }
 
     @Test
     void testLeafIsComposite() {
-        assertEquals(false, this.leaf.isComposite());
-        assertEquals("asdas", this.leaf.toString());
-
-        int size=composite.competicionComponentList.size();
-
-        for(int x=0;x<size;x++) {
-            System.out.println(composite.competicionComponentList.get(x));
-        }
+        composite.get(1);
     }
 }
