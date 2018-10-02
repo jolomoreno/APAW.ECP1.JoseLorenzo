@@ -25,6 +25,5 @@ public abstract class CompeticionComponent {
 
     public abstract String getName();
     public abstract String getId();
-    public abstract LocalDateTime getFecha();
     public abstract String getLugar();
 }
