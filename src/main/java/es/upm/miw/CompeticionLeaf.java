@@ -25,6 +25,26 @@ public class CompeticionLeaf extends CompeticionComponent{
 
     @Override
     public String toString(int deep){
-        return(this.id + " - " + this.name + " " + this.fecha+ " " + this.lugar + "\r\n");
+        return("ID: " + this.id + " - " + this.name + " " + this.fecha+ " " + this.lugar + "\r\n");
+    }
+
+    @Override
+    public String getId(){
+        return id;
+    }
+
+    @Override
+    public String getName(){
+        return name;
+    }
+
+    @Override
+    public LocalDateTime getFecha(){
+        return fecha;
+    }
+
+    @Override
+    public String getLugar(){
+        return lugar;
     }
 }

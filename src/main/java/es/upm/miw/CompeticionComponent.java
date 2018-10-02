@@ -22,4 +22,9 @@ public abstract class CompeticionComponent {
     public abstract void remove(CompeticionComponent competicionComponent);
 
     public abstract String toString(int deep);
+
+    public abstract String getName();
+    public abstract String getId();
+    public abstract LocalDateTime getFecha();
+    public abstract String getLugar();
 }

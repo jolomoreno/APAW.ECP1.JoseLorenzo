@@ -9,42 +9,68 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CompeticionCompositeTest {
 
-    private CompeticionComposite composite, composite2;
+    private CompeticionComposite root, composite;
     private CompeticionLeaf leaf, leaf2, leaf3;
 
 
     @BeforeEach
     void before() {
-        this.composite = new CompeticionComposite("Competiciones en España", "1", LocalDateTime.now(), "España");
+        this.root = new CompeticionComposite("Competiciones en España", "1", LocalDateTime.now(), "España");
 
-        leaf = new CompeticionLeaf("VoltaCatalunya","1", LocalDateTime.now(), "España");
+        leaf = new CompeticionLeaf("VoltaCatalunya","1", LocalDateTime.now(), "Catalunya");
 
-        composite.add(leaf);
+        root.add(leaf);
 
-        leaf2 = new CompeticionLeaf("VueltaBurgos","1", LocalDateTime.now(), "España");
+        leaf2 = new CompeticionLeaf("VueltaBurgos","1", LocalDateTime.now(), "Castilla Y Leon");
 
-        composite.add(leaf2);
+        root.add(leaf2);
 
-        this.composite2 = new CompeticionComposite("Competiciones en Madrid","1", LocalDateTime.now(), "España");
+        leaf3 = new CompeticionLeaf("Competiciones en Comunidad Valenciana","1", LocalDateTime.now(), "Comunidad Valenciana");
 
-        composite2.add(new CompeticionLeaf("Vuelta a Alcorcon","1", LocalDateTime.now(), "España"));
+        root.add(leaf3);
 
-        composite2.add(new CompeticionLeaf("Vuelta a Alcala de Henares","1", LocalDateTime.now(), "España"));
+        this.composite = new CompeticionComposite("Competiciones en Madrid","1", LocalDateTime.now(), "Comunidad de Madrid");
 
-        composite.add(composite2);
+        composite.add(new CompeticionLeaf("Vuelta a Alcorcon","1", LocalDateTime.now(), "Comunidad de Madrid"));
 
-        composite.add(new CompeticionLeaf("Competiciones en Euskadi","1", LocalDateTime.now(), "España"));
+        composite.add(new CompeticionLeaf("Vuelta a Alcala de Henares","1", LocalDateTime.now(), "Comunidad de Madrid"));
 
-        leaf3 = new CompeticionLeaf("Competiciones en Comunitat Valenciana","1", LocalDateTime.now(), "España");
-
-        composite.add(leaf3);
-
-        composite.remove(leaf3);
+        root.add(composite);
     }
 
     @Test
-    void testLeafIsComposite() {
-        System.out.println(composite.toString(1));
+    void testToString() {
+        System.out.println(root.toString(1));
+    }
 
+    @Test
+    void testRoot() {
+        assertEquals("1", root.getId());
+        assertEquals("Competiciones en España", root.getName());
+        assertEquals("España", root.getLugar());
+        assertEquals(true, root.isComposite());
+    }
+
+    @Test
+    void testComposite() {
+        assertEquals("1", composite.getId());
+        assertEquals("Competiciones en Madrid", composite.getName());
+        assertEquals("Comunidad de Madrid", composite.getLugar());
+        assertEquals(true, composite.isComposite());
+    }
+
+
+    @Test
+    void testLeaf() {
+        assertEquals("1", leaf.getId());
+        assertEquals("VoltaCatalunya", leaf.getName());
+        assertEquals("Catalunya", leaf.getLugar());
+        assertEquals(false, leaf.isComposite());
+    }
+
+    @Test
+    void testToStringWithoutRemoveLeaf() {
+        root.remove(leaf3);
+        System.out.println(root.toString(1));
     }
 }
