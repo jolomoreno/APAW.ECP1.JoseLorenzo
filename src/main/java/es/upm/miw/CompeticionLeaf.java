@@ -39,11 +39,6 @@ public class CompeticionLeaf extends CompeticionComponent{
     }
 
     @Override
-    public LocalDateTime getFecha(){
-        return fecha;
-    }
-
-    @Override
     public String getLugar(){
         return lugar;
     }
