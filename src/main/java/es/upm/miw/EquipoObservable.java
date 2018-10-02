@@ -10,7 +10,7 @@ public class EquipoObservable {
     private String nombre;
 
     private List<CorredorSingleton> corredorList;
-    private List<Competicion> competicionList;
+    private List<CompeticionComponent> competicionList;
     private Categoria categoria;
 
     private List<Consumer<String>> consumers;
