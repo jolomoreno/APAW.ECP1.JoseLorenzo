@@ -13,7 +13,7 @@
 ### Descripción
 Proyecto para la primera práctica de la asignatura Arquitectura y Patrones para Aplicaciones Web.
 
-[![Build Status](https://travis-ci.org/jolomoreno/APAW.ECP1.JoseLorenzo.svg?branch=develop)](https://travis-ci.org/jolomoreno/APAW.ECP1.JoseLorenzo)
+[![Build Status](https://travis-ci.org/jolomoreno/APAW.ECP1.JoseLorenzo.svg?branch=master)](https://travis-ci.org/jolomoreno/APAW.ECP1.JoseLorenzo)
 
 ### Tareas a realizar
 1. Establecer el esquema UML entre las entidades.
